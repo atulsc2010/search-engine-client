@@ -51,9 +51,9 @@ This project uses PostgreSQL for data persistance.
         /Commands - Command/Request/Reponse type definitions per entity 
         /Queries - Query/Request/Reponse type definitions per entity
         /Handlers - This is the application layer which implement the required business logic and db operations  
+        /Integration - HTTP client classes
         /Controllers
-            /UsersController - Apis for Users 
-            /AcccountsController - Apis for Accounts
+            /SearchController - API for search engine
         /Models - Contains Database context 
     
 
@@ -71,7 +71,23 @@ Build using IDE or CLI
     DB Migrations are added into Application startup
 
 
-## Testing
+## Deploying
+
+This project has Docker support, containers can be deployed using `docker-compose` shown in above sections.
+
+## Additional Information
+### Further Improvements 
+- Use a standard API media type such as JsonApi for standardised serialization instead of custom JSON for every API
+- Application Logging for better diagnosis
+- Use AutoMapper for concise code for mapping between domain and request/response objects
+- Create a repository for handling DB oprations so that it can be separted from handlers.
+- Add Swagger support for better API documnetation
+- Move DB Migrations out of application start up for better performance
+
+
+
+
+## Testing of Older APIs
 
 This api can be tested in following ways 
     
@@ -248,15 +264,3 @@ Request
 ```
 
 
-## Deploying
-
-This project has Docker support, containers can be deployed using `docker-compose` shown in above sections.
-
-## Additional Information
-### Further Improvements 
-- Use a standard API media type such as JsonApi for standardised serialization instead of custom JSON for every API
-- Application Logging for better diagnosis
-- Use AutoMapper for concise code for mapping between domain and request/response objects
-- Create a repository for handling DB oprations so that it can be separted from handlers.
-- Add Swagger support for better API documnetation
-- Move DB Migrations out of application start up for better performance

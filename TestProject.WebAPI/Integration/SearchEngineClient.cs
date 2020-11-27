@@ -12,15 +12,14 @@ namespace TestProject.WebAPI.Integration
     public class SearchEngineClient
     {
         private readonly IBaseHttpClient _baseHttpClient;
-     
+
         public SearchEngineClient(IBaseHttpClient baseHttpClient)
         {
             _baseHttpClient = baseHttpClient;
         }
 
 
-
-        public async Task<SearchResult> GetStringAsync(string engine, string keyWord, int pages=10)
+        public virtual async Task<SearchResult> GetStringAsync(string engine, string keyWord, int pages=10)
         {
             var engineUri = "https://www.google.com";
             string queryString;

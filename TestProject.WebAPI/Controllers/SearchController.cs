@@ -21,22 +21,5 @@ namespace TestProject.WebAPI.Controllers
             return Ok(response);
         }
 
-        //[HttpPost("create")]
-        //public async Task<IActionResult> Create([FromBody] CreateAccountRequest accountRequest)
-        //{
-        //    var command = new CreateAccountCommand(accountRequest);
-        //    var response = await Mediator.Send(command);
-
-        //    if (response.Status == "Success")
-        //    {
-        //        return Created("/accounts/create", response);
-        //    }
-        //    else
-        //    {
-        //        return BadRequest(response);
-        //    }
-
-        //}
-
     }
 }
