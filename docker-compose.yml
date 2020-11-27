@@ -1,0 +1,29 @@
+version: "3.8"
+services: 
+  db:
+    image: postgres:12
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - db-volume:/var/lib/posgresql/data
+    environment:
+      POSTGRES_USER: "postgresuser"
+      POSTGRES_PASSWORD: "Passw0rd"
+      POSTGRES_DB: "postgres"
+
+  searchapi:
+    image: searchapi:latest
+    restart: always
+    depends_on: 
+      - "db"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    links:
+      - "db:database"
+    ports: 
+      - 8000:80
+
+volumes:
+  db-volume:

@@ -1,0 +1,15 @@
+
+  userapi:
+    image: userapi:latest
+    restart: always
+    depends_on: 
+      - "db"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    links:
+      - "db:database"
+    ports: 
+      - 8000:80
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
